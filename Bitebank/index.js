@@ -1,44 +1,24 @@
-class Cliente{
-    nome;
-    cpf;
-}
-class ContaCorrente{
-    agencia;
-    #saldo = 0; // "#" objeto privado
+import { Cliente } from "./Cliente.js";
+import { ContaCorrente } from "./ContaCorrente.js";
 
-    depositar(valor){
-        if(valor > 0){
-            
-            this.#saldo += valor;
-
-            console.log("Saldo atual: "+ this.#saldo);
-            console.log("Valor depositado: "+ valor);
-            console.log("Valor atual: "+ this.#saldo);
-        }
-        else{
-            console.log("Valor inválido!")
-        }
-    }
-    sacar(valor){
-        if(this.#saldo >= valor){
-
-            this.#saldo -= valor;
-
-            console.log("Saldo atual: "+ this.#saldo);
-            console.log("Valor sacado: "+ valor);
-            console.log("Valor atual: "+ this.#saldo);
-        }
-        else{
-            console.log("Valor insuficiente!");
-        }
-    }
-}
 const cliente1 = new Cliente();
 cliente1.nome = 'Thyago';
 cliente1.cpf = 12334534300;
 
+const cliente2 = new Cliente();
+cliente2.nome = 'Laura';
+cliente2.cpf = 10121323230;
+
+const ContaCorrenteLaura = new ContaCorrente();
+ContaCorrenteLaura.agencia = 1002;
+ContaCorrenteLaura.cliente = cliente2;
+
 const ContaCorrenteThyago = new ContaCorrente();
-ContaCorrenteThyago.depositar(200);
-ContaCorrenteThyago.sacar(2);
 ContaCorrenteThyago.agencia = 1001;
+ContaCorrenteThyago.cliente = cliente1;
+ContaCorrenteThyago.depositar(200);
+ContaCorrenteThyago.transferir(200, ContaCorrenteLaura)
+
+
+console.log(ContaCorrenteLaura);
 console.log(ContaCorrenteThyago);
