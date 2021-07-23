@@ -1,9 +1,23 @@
+import { Cliente } from "./Cliente.js";
+
 export class ContaCorrente{
+    static numeroDeContas = 0;
     agencia;
-    cliente;
-
-
+    _cliente;
     _saldo = 0; // "_" objeto privado
+
+     
+    get cliente(){
+        return this._cliente;
+    }
+    get saldo(){
+        return this._saldo;
+    }
+    constructor(cliente, agencia){
+        this.agencia = agencia;
+        this._cliente = cliente;
+        ContaCorrente.numeroDeContas++;
+    }
 
     depositar(valor){
         if(valor > 0){
