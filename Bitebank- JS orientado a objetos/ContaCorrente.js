@@ -4,7 +4,7 @@ export class ContaCorrente{
     static numeroDeContas = 0;
     agencia;
     _cliente;
-    _saldo = 0; // "_" objeto privado
+    _saldo = 0; // "_" campo privado
 
      
     get cliente(){

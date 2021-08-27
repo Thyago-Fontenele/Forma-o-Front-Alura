@@ -19,6 +19,6 @@ var lanchonete ={
         'pudim'
     ]
 };
-for(var i of lanchonete.bebidas){
+for(var i of lanchonete.salgados){
     console.log(i);
 }
